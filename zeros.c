@@ -5,7 +5,7 @@ int main() {
     int UserNumber;
     int count = 0;
 
-    printf("Welcome to the CountOnes program\n");
+    printf("Welcome to the Zeroes program\n");
 
     do {
         count = 0;
@@ -13,13 +13,19 @@ int main() {
         printf("Please enter a number: \n");
         scanf("%d", &UserNumber);
 
-        for (int i = 31; i >= 0; i--){
-            int bit = (UserNumber >> i) & 1;
-            if (bit == 1)
-                count++; 
-        }
+        if (UserNumber == 0){
+            printf("32\n");
+            
+        } else {
+        while(!(UserNumber & (~__INT_MAX__))){
 
-        printf("The number of ones is: %d\n", count);
+            count++;
+            UserNumber <<= 1;
+        }
+        
+        printf("The number of leading zeros is: %d\n", count);
+
+    }
 
         printf("Continue (y/n)?: ");
         scanf(" %c", &UserYN);
